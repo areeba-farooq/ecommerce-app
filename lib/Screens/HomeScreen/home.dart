@@ -1,14 +1,14 @@
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/HomeTrendingCards.dart';
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/trendingAds.dart';
 import 'package:flutter/material.dart';
-import 'AdContainer.dart';
-import 'HomeScreen/CityDropDownList.dart';
-import 'HomeScreen/HomeFeaturedAds/homeFeaturedCards.dart';
-import 'HomeScreen/drawer.dart';
-import 'HomeScreen/HomeFeaturedAds/featuredAds.dart';
-import 'HomeScreen/heading.dart';
-import 'HomeScreen/homecategoryIcons/HomeCategoryIconsContainer.dart';
-import 'HomeScreen/searchbar.dart';
+import '../AdContainer.dart';
+import 'CityDropDownList.dart';
+import 'HomeFeaturedAds/homeFeaturedCards.dart';
+import 'drawer.dart';
+import 'HomeFeaturedAds/featuredAds.dart';
+import 'heading.dart';
+import 'homecategoryIcons/HomeCategoryIconsContainer.dart';
+import 'searchbar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

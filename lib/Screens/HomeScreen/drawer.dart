@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/CategoriesScreen/Categories.dart';
 import 'package:flutter/material.dart';
 
 Drawer buildDrawer(BuildContext context) {
@@ -6,7 +7,9 @@ Drawer buildDrawer(BuildContext context) {
       padding: EdgeInsets.zero,
       children: [
         userAccountsDrawerHeader(),
-        DrawerList(text: 'Categories', icon: Icons.category, onTap: null,),
+        DrawerList(text: 'Categories', icon: Icons.category, onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Categories()));
+        },),
         DrawerList(text: 'Favourites', icon: Icons.favorite_border, onTap: null,),
         DrawerList(text: 'My Ads', icon: Icons.add_box, onTap: null,),
         DrawerList(text: 'Chats', icon: Icons.message, onTap: null,),
