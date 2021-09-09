@@ -5,7 +5,7 @@ Container buildCategoryContainer(BuildContext context) {
   return Container(
     margin: EdgeInsets.only(top: 10),
     padding: EdgeInsets.only(top: 10),
-    height: 630,
+    height: 600,
     width: double.infinity,
     color: Colors.white,
     child: ListView(
@@ -59,7 +59,7 @@ class CategoryList extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 10.0),
+        padding: EdgeInsets.symmetric(vertical: 8.0),
         child: ListTile(
           leading: Image.asset(img,width: 40, height: 40,),
           title: Text(text, style: TextStyle(

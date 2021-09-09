@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-class FavAdsCards extends StatelessWidget {
+class HiddenAdsCards extends StatelessWidget {
   final String img;
   final String text;
   final String price;
@@ -11,7 +11,7 @@ class FavAdsCards extends StatelessWidget {
   final IconData timeIcon;
   final String time;
 
-  FavAdsCards({required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
+  HiddenAdsCards({required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +53,22 @@ class FavAdsCards extends StatelessWidget {
               ),
               Positioned(
                   top: 10,
-                  right: 20,
-                  child: Icon(Icons.favorite, color: Colors.red, size: 30,))
+                  left: 15,
+                  child: Container(
+                    height: 25,
+                    width: 70,
+                    decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(5)
+                    ),
+                    child: Center(
+                      child: Text('Pending', style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15
+                      ),),
+                    ),
+                  ))
             ],
           ),
           Column(

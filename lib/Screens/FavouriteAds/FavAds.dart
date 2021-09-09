@@ -26,88 +26,16 @@ class FavAds extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: EdgeInsets.only(top: 20),
-              height: 180,
-              width: 411,
-              decoration: BoxDecoration(
-              color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 3,
-                    blurRadius: 7,
-                    offset: Offset(0, 3), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: Row(
-                children: [
-                 Stack(
-                   children: [
-                     ClipRRect(
-                       borderRadius: BorderRadius.circular(15),
-                       child: Container(
-                         margin: EdgeInsets.symmetric(horizontal: 8),
-                         height: 160,
-                         width: 200,
-                         decoration: BoxDecoration(
-                           color: Colors.white,
-                           image: DecorationImage(
-                               image: AssetImage('assets/ads/img3.jpg'),
-                               fit: BoxFit.cover
-                           ),
-                           borderRadius: BorderRadius.circular(15),
+            FavAdsCards(img: 'assets/ads/img1.jpg', text: 'Assetz Marq', icon: Icons.location_on_outlined, location: 'Whitefield, Banglore', timeIcon: Icons.access_time, time: '7 hours ago', price: '\$99999',),
+            FavAdsCards(img: 'assets/ads/img2.jpg', text: 'Nikon Camera New...', icon: Icons.location_on_outlined, location: 'Khargarh Mumbai', timeIcon: Icons.access_time, time: '5 hours ago', price: '\$120',),
+            FavAdsCards(img: 'assets/ads/img3.jpg', text: 'Sun Glasses', icon: Icons.location_on_outlined, location: 'Mumbai', timeIcon: Icons.access_time, time: '3 Sep 2020', price: '\$100',),
+            FavAdsCards(img: 'assets/ads/img4.jpg', text: 'Iphone X Pro', icon: Icons.location_on_outlined, location: 'UP, India', timeIcon: Icons.access_time, time: '2 hours ago', price: '\$490',),
+            FavAdsCards(img: 'assets/ads/img5.jpg', text: 'Audi 753x Car', icon: Icons.location_on_outlined, location: 'Lodhyana, India', timeIcon: Icons.access_time, time: '5 hours ago', price: '\$5000',),
+            FavAdsCards(img: 'assets/ads/img6.jpg', text: 'Refurnished Chair', icon: Icons.location_on_outlined, location: 'Punjab, India', timeIcon: Icons.access_time, time: '10 hours ago', price: '\$890',),
+            FavAdsCards(img: 'assets/ads/img7.jpg', text: 'Honda Bike 678yh', icon: Icons.location_on_outlined, location: 'Mumbai', timeIcon: Icons.access_time, time: '5 hours ago', price: '\$120',),
+            FavAdsCards(img: 'assets/ads/img8.jpg', text: 'Keviy Bicycle', icon: Icons.location_on_outlined, location: 'Khargarh', timeIcon: Icons.access_time, time: '10 Aug 2020', price: '\$120',),
+            SizedBox(height: 30,)
 
-                         ),
-                       ),
-                     ),
-                     Positioned(
-                       top: 10,
-                       right: 20,
-                         child: Icon(Icons.favorite, color: Colors.red, size: 30,))
-                   ],
-                 ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Nikon Camera New Mo..', style: TextStyle(
-                        fontSize: 18
-                      ),),
-                      SizedBox(height: 15,),
-                      Text('\$120', style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      ),),
-                      SizedBox(height: 15,),
-                      Row(
-                        children: [
-                          Icon(Icons.location_on_outlined, color: Colors.grey,),
-                          SizedBox(width: 5,),
-                          Text('Khargarh Mumbai', style: TextStyle(
-                            color: Colors.grey
-                          ),),
-                        ],
-                      ),
-                      SizedBox(height: 15,),
-                      Row(
-                        children: [
-                          Icon(Icons.access_time, color: Colors.blueGrey,),
-                          SizedBox(width: 5,),
-                          Text('5 hours ago', style: TextStyle(
-                            color: Colors.blueGrey
-                          ),),
-                        ],
-                      ),
-
-                    ],
-                  )
-                ],
-              ),
-
-            )
           ],
         ),
       ),
