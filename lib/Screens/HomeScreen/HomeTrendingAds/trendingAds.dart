@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Trending%20Ads/trendingAds.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,7 +17,9 @@ class TrendingAds extends StatelessWidget {
           ),),
         ),
         TextButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>TrendingAdsList()));
+          },
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text('View More'),

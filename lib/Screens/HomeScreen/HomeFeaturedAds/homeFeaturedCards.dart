@@ -28,6 +28,7 @@ class FeaturedCards extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
@@ -38,10 +39,13 @@ class FeaturedCards extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8,),
-          Text(text, style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500
-          ),),
+          Padding(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Text(text, style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500
+            ),),
+          ),
           SizedBox(height: 8,),
           Padding(
             padding: EdgeInsets.only(left: 13.0),
@@ -57,11 +61,14 @@ class FeaturedCards extends StatelessWidget {
             ),
           ),
           SizedBox(height: 8,),
-          Text(price, style: TextStyle(
-              color: Theme.of(context).primaryColor,
-              fontWeight: FontWeight.bold,
-              fontSize: 20
-          ),)
+          Padding(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Text(price, style: TextStyle(
+                color: Theme.of(context).primaryColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+            ),),
+          )
         ],
       ),
     );
@@ -83,13 +90,13 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(width: 10,),
           FeaturedCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
           SizedBox(width: 10,),
-          FeaturedCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+          FeaturedCards(img: 'assets/ads/img3.jpg',text: 'Sun Glasses', icon: Icons.location_on_outlined, loctaion: 'UP, India', price: '\$100',),
           SizedBox(width: 10,),
-          FeaturedCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+          FeaturedCards(img: 'assets/ads/img4.jpg',text: 'Iphone x Pro', icon: Icons.location_on_outlined, loctaion: 'Punjab India', price: '\$9999',),
           SizedBox(width: 10,),
-          FeaturedCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+          FeaturedCards(img: 'assets/ads/img5.jpg',text: 'Audi 567xT Car', icon: Icons.location_on_outlined, loctaion: 'Mumbai', price: '\$304',),
           SizedBox(width: 10,),
-          FeaturedCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+          FeaturedCards(img: 'assets/ads/img6.jpg',text: 'Refurnished Chair', icon: Icons.location_on_outlined, loctaion: 'Ludhyana', price: '\$890',),
           SizedBox(width: 10,),
 
 

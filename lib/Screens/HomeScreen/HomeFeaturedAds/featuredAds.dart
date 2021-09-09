@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Featured%20Ads/featuredAds.dart';
 import 'package:flutter/material.dart';
 
 
@@ -19,7 +20,9 @@ class FeaturedAds extends StatelessWidget {
           ),),
         ),
         TextButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>FeaturedAdsList()));
+          },
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
             child: Text('View More'),

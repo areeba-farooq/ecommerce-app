@@ -28,6 +28,7 @@ class TrendingCards extends StatelessWidget {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
          Stack(
            children: [
@@ -54,7 +55,7 @@ class TrendingCards extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 13.0),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(icon, color: Colors.grey, size: 18,),
                 SizedBox(width: 5,),
@@ -88,7 +89,7 @@ class HomeTrendingCards extends StatelessWidget {
           children: [
             TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
             SizedBox(width: 20,),
-            TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+            TrendingCards(img: 'assets/ads/img1.jpg',text: 'Assetz Marq', icon: Icons.location_on_outlined, loctaion: 'Banglore', price: '\$99999',),
           ],
         ),
         SizedBox(
@@ -97,9 +98,9 @@ class HomeTrendingCards extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+            TrendingCards(img: 'assets/ads/img3.jpg',text: 'Sun Glasses', icon: Icons.location_on_outlined, loctaion: 'UP, India', price: '\$100',),
             SizedBox(width: 20,),
-            TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+            TrendingCards(img: 'assets/ads/img8.jpg',text: 'Kevy Bicycle 2020', icon: Icons.location_on_outlined, loctaion: 'Mumbai', price: '\$490',),
           ],
         ),
         SizedBox(
@@ -109,9 +110,9 @@ class HomeTrendingCards extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+            TrendingCards(img: 'assets/ads/img6.jpg',text: 'Refurnished Chair', icon: Icons.location_on_outlined, loctaion: 'Punjab, India', price: '\$50000',),
             SizedBox(width: 20,),
-            TrendingCards(img: 'assets/ads/img2.jpg',text: 'Nikon Camera New..', icon: Icons.location_on_outlined, loctaion: 'Khargarh Mumbai', price: '\$120',),
+            TrendingCards(img: 'assets/ads/img9.jpg',text: 'Audi Car 456yT', icon: Icons.location_on_outlined, loctaion: 'Ludhyana', price: '\$670',),
           ],
         ),
       ],
