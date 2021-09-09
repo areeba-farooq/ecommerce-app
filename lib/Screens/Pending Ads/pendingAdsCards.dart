@@ -102,6 +102,14 @@ class PendingAdsCards extends StatelessWidget {
                   Text(time, style: TextStyle(
                       color: Colors.blueGrey
                   ),),
+                  SizedBox(width: 30,),
+                  Row(
+                    children: [
+                      Icon(Icons.edit, color: Colors.blueGrey, size: 18,),
+                      SizedBox(width:8,),
+                      Icon(Icons.delete, color: Colors.blueGrey, size: 18,),
+                    ],
+                  )
                 ],
               ),
 

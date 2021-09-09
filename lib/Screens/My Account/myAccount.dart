@@ -1,4 +1,5 @@
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
+import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/material.dart';
 
 import 'AccountList.dart';
@@ -23,7 +24,9 @@ class MyAccount extends StatelessWidget {
             fontSize: 22
         ),),
         actions: [
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+          },
               icon: Icon(Icons.person_outline, color: Colors.white,))
         ],
       ),

@@ -1,6 +1,8 @@
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
+import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/material.dart';
 
+import 'Screens/Account Setting/settings.dart';
 import 'Screens/CategoriesScreen/Categories.dart';
 import 'Screens/FavouriteAds/FavAds.dart';
 import 'Screens/Featured Ads/featuredAds.dart';
@@ -18,6 +20,6 @@ void main() => runApp(
         primaryColor: Color(0xFF2962D1),
         accentColor: Color(0xFFF3F3F3),
       ),
-      home: HomePage(),
+      home: Profile(),
 
 ));

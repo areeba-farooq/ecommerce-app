@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Account%20Setting/settings.dart';
 import 'package:dubuz_app/Screens/Expire%20Ads/expireAds.dart';
 import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/Hidden%20Ads/hiddenAds.dart';
@@ -68,7 +69,8 @@ class AccountContainer extends StatelessWidget {
                 AccountList(icon: Icons.more_time_sharp, text: 'Resubmit Ads',onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>ResubmitAds()));
                 },),
-                AccountList(icon: Icons.settings, text: 'Account Settings',onTap: null),
+                AccountList(icon: Icons.settings, text: 'Account Settings',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
+                },),
                 AccountList(icon: Icons.logout, text: 'Logout',onTap: null),
 
               ]

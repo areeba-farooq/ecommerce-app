@@ -102,6 +102,8 @@ class ResubmitAdsCards extends StatelessWidget {
                   Text(time, style: TextStyle(
                       color: Colors.blueGrey
                   ),),
+                  SizedBox(width: 50,),
+                  Icon(Icons.delete, color: Colors.blueGrey, size: 18,)
                 ],
               ),
 

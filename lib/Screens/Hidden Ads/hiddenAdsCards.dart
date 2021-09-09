@@ -58,11 +58,11 @@ class HiddenAdsCards extends StatelessWidget {
                     height: 25,
                     width: 70,
                     decoration: BoxDecoration(
-                        color: Colors.teal,
+                        color: Colors.brown,
                         borderRadius: BorderRadius.circular(5)
                     ),
                     child: Center(
-                      child: Text('Pending', style: TextStyle(
+                      child: Text('Hidden', style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
                           fontSize: 15
@@ -102,6 +102,16 @@ class HiddenAdsCards extends StatelessWidget {
                   Text(time, style: TextStyle(
                       color: Colors.blueGrey
                   ),),
+                  SizedBox(width: 20,),
+                  Row(
+                    children: [
+                      Icon(Icons.edit, color: Colors.blueGrey, size: 18,),
+                      SizedBox(width:5,),
+                      Icon(Icons.visibility, color: Colors.blueGrey, size: 18,),
+                      SizedBox(width:5,),
+                      Icon(Icons.delete, color: Colors.blueGrey, size: 18,),
+                    ],
+                  )
                 ],
               ),
 

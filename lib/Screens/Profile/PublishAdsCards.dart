@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 
 
-class MyAdsCards extends StatelessWidget {
+class PublishAdsCards extends StatelessWidget {
   final String img;
   final String text;
   final String price;
@@ -11,7 +11,7 @@ class MyAdsCards extends StatelessWidget {
   final IconData timeIcon;
   final String time;
 
-  MyAdsCards({required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
+  PublishAdsCards({required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -53,22 +53,8 @@ class MyAdsCards extends StatelessWidget {
               ),
               Positioned(
                   top: 10,
-                  left: 15,
-                  child: Container(
-                    height: 20,
-                    width: 60,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(5)
-                    ),
-                    child: Center(
-                      child: Text('Active', style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15
-                      ),),
-                    ),
-                  ))
+                  right: 20,
+                  child: Icon(Icons.favorite, color: Colors.red, size: 30,))
             ],
           ),
           Column(
@@ -97,19 +83,11 @@ class MyAdsCards extends StatelessWidget {
               SizedBox(height: 15,),
               Row(
                 children: [
-                Icon(timeIcon, color: Colors.blueGrey,),
-                SizedBox(width: 5,),
-                Text(time, style: TextStyle(
-                    color: Colors.blueGrey
-                ),),
-                  SizedBox(width: 30,),
-                  Row(
-                    children: [
-                      Icon(Icons.edit, color: Colors.blueGrey, size: 18,),
-                      SizedBox(width:8,),
-                      Icon(Icons.delete, color: Colors.blueGrey, size: 18,),
-                    ],
-                  )
+                  Icon(timeIcon, color: Colors.blueGrey,),
+                  SizedBox(width: 5,),
+                  Text(time, style: TextStyle(
+                      color: Colors.blueGrey
+                  ),),
                 ],
               ),
 
