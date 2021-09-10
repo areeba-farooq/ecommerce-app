@@ -5,6 +5,7 @@ import 'package:dubuz_app/Screens/Hidden%20Ads/hiddenAds.dart';
 import 'package:dubuz_app/Screens/MyAds/myAds.dart';
 import 'package:dubuz_app/Screens/Pending%20Ads/pendingAds.dart';
 import 'package:dubuz_app/Screens/Resubmit%20Ads/resubmitAds.dart';
+import 'package:dubuz_app/Screens/Welcome%20Screen/welcome.dart';
 import 'package:flutter/material.dart';
 
 class AccountList extends StatelessWidget {
@@ -71,7 +72,9 @@ class AccountContainer extends StatelessWidget {
                 },),
                 AccountList(icon: Icons.settings, text: 'Account Settings',onTap:(){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
                 },),
-                AccountList(icon: Icons.logout, text: 'Logout',onTap: null),
+                AccountList(icon: Icons.logout, text: 'Logout',onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Welcome()));
+                },),
 
               ]
           ).toList()

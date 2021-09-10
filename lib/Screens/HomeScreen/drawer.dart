@@ -4,6 +4,7 @@ import 'package:dubuz_app/Screens/Chats/ChatScreen.dart';
 import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/My%20Account/myAccount.dart';
 import 'package:dubuz_app/Screens/MyAds/myAds.dart';
+import 'package:dubuz_app/Screens/Welcome%20Screen/welcome.dart';
 import 'package:flutter/material.dart';
 
 Drawer buildDrawer(BuildContext context) {
@@ -44,7 +45,9 @@ Drawer buildDrawer(BuildContext context) {
           Navigator.push(context, MaterialPageRoute(builder: (context)=>Settings()));
         },),
         DrawerList(text: 'Contact', icon: Icons.phone, onTap: null,),
-        DrawerList(text: 'Logout', icon: Icons.logout, onTap: null,),
+        DrawerList(text: 'Logout', icon: Icons.logout, onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>Welcome()));
+        },),
       ],
     ),
   );

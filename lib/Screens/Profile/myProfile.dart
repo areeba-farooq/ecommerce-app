@@ -3,6 +3,7 @@ import 'package:dubuz_app/Screens/EditProfile/edit_profile.dart';
 import 'package:dubuz_app/Screens/My%20Account/myAccount.dart';
 import 'package:dubuz_app/Screens/Profile/PublishAds.dart';
 import 'package:dubuz_app/Screens/Profile/description.dart';
+import 'package:dubuz_app/Screens/Welcome%20Screen/welcome.dart';
 import 'package:flutter/material.dart';
 
 import 'AboutMe.dart';
@@ -55,7 +56,7 @@ class Profile extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => MyAccount()));
+                          MaterialPageRoute(builder: (context) => Welcome()));
                     },
                     child: Row(
                       children: [
