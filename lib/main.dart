@@ -13,6 +13,7 @@ import 'Screens/My Account/myAccount.dart';
 import 'Screens/MyAds/myAds.dart';
 import 'Screens/Pending Ads/pendingAds.dart';
 import 'Screens/Resubmit Ads/resubmitAds.dart';
+import 'Screens/Search Results/search_results.dart';
 import 'Screens/Sub-Categories/subCategory.dart';
 
 void main() => runApp(
@@ -22,6 +23,6 @@ void main() => runApp(
         primaryColor: Color(0xFF2962D1),
         accentColor: Color(0xFFF3F3F3),
       ),
-      home: Profile(),
+      home: HomePage(),
 
 ));

@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Search%20Results/search_results.dart';
 import 'package:flutter/material.dart';
 class SubCategoryList extends StatelessWidget {
   final String text;
@@ -7,12 +8,15 @@ class SubCategoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
-      child: ListTile(
-        title: Text(text, style: TextStyle(
-            fontSize: 20
-        ),),
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 10.0),
+        child: ListTile(
+          title: Text(text, style: TextStyle(
+              fontSize: 20
+          ),),
+        ),
       ),
     );
   }
@@ -32,15 +36,27 @@ class SubCategoryListContainer extends StatelessWidget {
       width: double.infinity,
       color: Colors.white,
       child: ListView(
+        scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           children:
           ListTile.divideTiles(
               context: context,
               tiles: [
-                SubCategoryList(text: 'Cars & Bikes',),
-                SubCategoryList(text: 'Cars',),
-                SubCategoryList(text: 'Other Vehicles',),
-                SubCategoryList(text: 'Spare Part -Accessories',),
-                SubCategoryList(text: 'Commercial Vehicles',),
+                SubCategoryList(text: 'Cars & Bikes', onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                },),
+                SubCategoryList(text: 'Cars',onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                }),
+                SubCategoryList(text: 'Other Vehicles',onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                }),
+                SubCategoryList(text: 'Spare Part -Accessories',onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                }),
+                SubCategoryList(text: 'Commercial Vehicles',onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                }),
 
               ]
           ).toList()
