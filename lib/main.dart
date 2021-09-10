@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'Screens/Account Setting/settings.dart';
 import 'Screens/CategoriesScreen/Categories.dart';
+import 'Screens/Chats/ChatScreen.dart';
+import 'Screens/EditProfile/edit_profile.dart';
 import 'Screens/FavouriteAds/FavAds.dart';
 import 'Screens/Featured Ads/featuredAds.dart';
 import 'Screens/Hidden Ads/hiddenAds.dart';
