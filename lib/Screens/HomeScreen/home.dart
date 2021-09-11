@@ -1,5 +1,6 @@
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/HomeTrendingCards.dart';
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/trendingAds.dart';
+import 'package:dubuz_app/Screens/HomeScreen/Notification%20SCreen/Notification_Screen.dart';
 import 'package:flutter/material.dart';
 import '../AdContainer.dart';
 import 'CityDropDownList.dart';
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> {
         iconTheme: IconThemeData(color: Colors.black),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>NotificationScreen()));},
             icon: Icon(Icons.notifications_none),
           ),
         ],
