@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Sub-Categories/subCategory.dart';
 import 'package:flutter/material.dart';
 
 import '../AdContainer.dart';
@@ -14,6 +15,12 @@ class SearchResult extends StatelessWidget {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Theme.of(context).primaryColor,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> SubCategory()));
+          },
+          child: Icon(Icons.arrow_back, color: Colors.white,),
+        ),
         title: Container(
           width: double.infinity,
           height: 40,
