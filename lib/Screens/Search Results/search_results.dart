@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/A%20Details/detailScreen.dart';
 import 'package:dubuz_app/Screens/Sub-Categories/subCategory.dart';
 import 'package:flutter/material.dart';
 
@@ -49,6 +50,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '7 hours ago',
               price: '\$99999',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img2.jpg',
@@ -58,6 +62,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '5 hours ago',
               price: '\$120',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img3.jpg',
@@ -67,6 +74,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '3 Sep 2020',
               price: '\$100',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img4.jpg',
@@ -76,6 +86,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '2 hours ago',
               price: '\$490',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             SizedBox(
               height: 20,
@@ -89,6 +102,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '5 hours ago',
               price: '\$5000',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img6.jpg',
@@ -98,6 +114,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '10 hours ago',
               price: '\$890',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img7.jpg',
@@ -107,6 +126,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '5 hours ago',
               price: '\$120',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             AdsCards(
               img: 'assets/ads/img8.jpg',
@@ -116,6 +138,9 @@ class SearchResult extends StatelessWidget {
               timeIcon: Icons.access_time,
               time: '10 Aug 2020',
               price: '\$120',
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>AdDetails()));
+              },
             ),
             SizedBox(height: 30,)
           ],

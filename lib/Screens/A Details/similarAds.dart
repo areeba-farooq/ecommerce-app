@@ -1,7 +1,7 @@
 import 'package:dubuz_app/Screens/A%20Details/detailScreen.dart';
 import 'package:flutter/material.dart';
 
-class FeaturedCards extends StatelessWidget {
+class SimilarADs extends StatelessWidget {
   final String text;
   final img;
   final IconData icon;
@@ -9,7 +9,7 @@ class FeaturedCards extends StatelessWidget {
   final String price;
   final onTap;
 
-  FeaturedCards(
+  SimilarADs(
       {this.onTap,
       required this.img,
       required this.text,
@@ -34,12 +34,12 @@ class FeaturedCards extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GestureDetector(
-            onTap: onTap,
-            child: ClipRRect(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Container(
                 width: 180,
@@ -50,64 +50,60 @@ class FeaturedCards extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 15.0),
-            child: Text(
-              text,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+            SizedBox(
+              height: 8,
             ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 13.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(
-                  icon,
-                  color: Colors.grey,
-                  size: 18,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  location,
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
+            Padding(
+              padding: EdgeInsets.only(left: 15.0),
+              child: Text(
+                text,
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              ),
             ),
-          ),
-          SizedBox(
-            height: 8,
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 15.0),
-            child: Text(
-              price,
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20),
+            SizedBox(
+              height: 8,
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(left: 13.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Icon(
+                    icon,
+                    color: Colors.grey,
+                    size: 18,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    location,
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 15.0),
+              child: Text(
+                price,
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
 }
 
-class HomeFeaturedCards extends StatelessWidget {
-  const HomeFeaturedCards({
-    Key? key,
-  }) : super(key: key);
-
+class SimilarAdsCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -117,7 +113,7 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          FeaturedCards(
+          SimilarADs(
             img: 'assets/ads/img2.jpg',
             text: 'Nikon Camera New..',
             icon: Icons.location_on_outlined,
@@ -130,7 +126,7 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          FeaturedCards(
+          SimilarADs(
             img: 'assets/ads/img3.jpg',
             text: 'Sun Glasses',
             icon: Icons.location_on_outlined,
@@ -143,7 +139,7 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          FeaturedCards(
+          SimilarADs(
             img: 'assets/ads/img4.jpg',
             text: 'Iphone x Pro',
             icon: Icons.location_on_outlined,
@@ -156,7 +152,7 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          FeaturedCards(
+          SimilarADs(
             img: 'assets/ads/img5.jpg',
             text: 'Audi 567xT Car',
             icon: Icons.location_on_outlined,
@@ -169,7 +165,7 @@ class HomeFeaturedCards extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          FeaturedCards(
+          SimilarADs(
             img: 'assets/ads/img6.jpg',
             text: 'Refurnished Chair',
             icon: Icons.location_on_outlined,

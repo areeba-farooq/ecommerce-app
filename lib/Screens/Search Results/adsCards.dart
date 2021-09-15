@@ -10,8 +10,9 @@ class AdsCards extends StatelessWidget {
   final String location;
   final IconData timeIcon;
   final String time;
+  final onTap;
 
-  AdsCards({required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
+  AdsCards({this.onTap,required this.img, required this.text, required this.price, required this.icon, required this.location, required this.time, required this.timeIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +35,22 @@ class AdsCards extends StatelessWidget {
         children: [
           Stack(
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 8),
-                  height: 160,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    image: DecorationImage(
-                        image: AssetImage(img),
-                        fit: BoxFit.cover
-                    ),
-                    borderRadius: BorderRadius.circular(15),
+              GestureDetector(onTap: onTap,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    height: 160,
+                    width: 200,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                          image: AssetImage(img),
+                          fit: BoxFit.cover
+                      ),
+                      borderRadius: BorderRadius.circular(15),
 
+                    ),
                   ),
                 ),
               ),

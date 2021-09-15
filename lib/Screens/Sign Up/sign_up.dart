@@ -1,49 +1,52 @@
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
-import 'package:dubuz_app/Screens/Login%20Screen/OTP_login.dart';
-import 'package:dubuz_app/Screens/Login%20Screen/forgot_password.dart';
-import 'package:dubuz_app/Screens/Sign%20Up/sign_up.dart';
+import 'package:dubuz_app/Screens/Login%20Screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
+  @override
+  _SignUpState createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Welcome Back!',
+            'Sign Up',
             style: TextStyle(
                 color: Colors.black, fontSize: 25, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: 20,
+            height: 10,
           ),
-          Image.asset(
-            'images/login-img.png',
-            scale: 2,
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: Text('Fill the details & create your account',
+              style: TextStyle(color: Colors.grey, fontSize: 18),
+              textAlign: TextAlign.center,
+            ),
           ),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: TextField(
+              keyboardType: TextInputType.name,
               decoration: InputDecoration(
                   prefixIcon: Icon(
-                    Icons.email_outlined,
-                    color: Colors.black87,
+                    Icons.person,
+                    color: Colors.black,
                   ),
-                  suffixIcon: Icon(
-                    Icons.check_circle,
-                    color: Colors.black87,
-                  ),
-                  hintText: 'Info@gmail.com',
+                  hintText: 'Username',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 18)),
             ),
           ),
@@ -53,46 +56,57 @@ class Login extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: TextField(
+              keyboardType: TextInputType.number,
               decoration: InputDecoration(
                   prefixIcon: Icon(
-                    Icons.lock,
-                    color: Colors.black87,
+                    Icons.phone,
+                    color: Colors.black,
                   ),
-                  suffixIcon: Icon(
-                    Icons.visibility_off,
-                    color: Colors.black87,
+                  hintText: 'Mobile No.',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 18)),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.email_outlined,
+                    color: Colors.black,
+                  ),
+                  hintText: 'Info54@gmail.com',
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 18)),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextField(
+              keyboardType: TextInputType.visiblePassword,
+              obscureText: true,
+              decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.lock_open,
+                    color: Colors.black,
                   ),
                   hintText: 'Password',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 18)),
             ),
           ),
-          SizedBox(
-            height: 5,
-          ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPassword()));
-              },
-              child: Padding(
-                padding: EdgeInsets.only(left: 200.0),
-                child: Text(
-                  'Forgot Password?',
-                  style: TextStyle(
-                      color: Theme.of(context).primaryColor,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w500),
-                ),
-              )),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 50,),
           ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => HomePage()));
               },
               child: Text(
-                'Login',
+                'SignUp',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -109,17 +123,12 @@ class Login extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          GestureDetector(
-            onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>OTPLogin()));
-            },
-            child: Text(
-              'Login via OTP',
-              style: TextStyle(
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18),
-            ),
+          Text(
+            'Or Via Social Media',
+            style: TextStyle(
+                color: Colors.black45,
+                fontWeight: FontWeight.w500,
+                fontSize: 18),
           ),
           SizedBox(
             height: 30,
@@ -165,20 +174,20 @@ class Login extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
             },
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
                 child: RichText(
                   text: TextSpan(
-                      text: "Don't have an account?",
+                      text: "Already have an account?",
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
                       ),
                       children: <TextSpan>[
                         TextSpan(
-                            text: ' Signup',
+                            text: 'Login',
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor,
                                 fontSize: 18,

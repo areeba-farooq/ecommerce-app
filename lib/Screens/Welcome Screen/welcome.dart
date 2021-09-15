@@ -1,4 +1,5 @@
 import 'package:dubuz_app/Screens/Login%20Screen/login_screen.dart';
+import 'package:dubuz_app/Screens/Sign%20Up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -58,7 +59,9 @@ class Welcome extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ))),
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+                  },
                   child: Text(
                     'Signup',
                     style: TextStyle(

@@ -3,6 +3,8 @@
    <application
         android:label="dubuz_app"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyAcaNGCEbDBKNx5TgOGoiLyGY_qqdunfsU"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

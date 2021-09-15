@@ -42,7 +42,7 @@ class SubCategoryListContainer extends StatelessWidget {
           ListTile.divideTiles(
               context: context,
               tiles: [
-                SubCategoryList(text: 'Cars & Bikes', onTap: (){
+                SubCategoryList(text: 'Bikes', onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
                 },),
                 SubCategoryList(text: 'Cars',onTap: (){

@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/A%20Details/detailScreen.dart';
 import 'package:dubuz_app/Screens/All%20Reviews/rating.dart';
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class Reviews extends StatelessWidget {
         leading: GestureDetector(
             onTap: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
+                  context, MaterialPageRoute(builder: (context) => AdDetails()));
             },
             child: Icon(
               Icons.arrow_back,

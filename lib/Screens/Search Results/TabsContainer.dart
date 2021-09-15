@@ -1,3 +1,4 @@
+import 'package:dubuz_app/Screens/Location/locationScreen.dart';
 import 'package:dubuz_app/Screens/Search%20Results/Filter%20Screen/Filter.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,9 @@ class TabsContainer extends StatelessWidget {
           SizedBox(
             width: 25,
           ),
-          Tab(name: 'Location', icon: Icons.location_on_outlined, onTap: null),
+          Tab(name: 'Location', icon: Icons.location_on_outlined, onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> LocationScreen()));
+          }),
           VerticalLine(),
           Tab(name: 'Sort', icon: Icons.sort, onTap: (){
             showDialog(
