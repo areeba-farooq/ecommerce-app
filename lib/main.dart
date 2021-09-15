@@ -2,6 +2,7 @@ import 'package:dubuz_app/Screens/HomeScreen/Notification%20SCreen/Notification_
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:flutter/material.dart';
 import 'Screens/A Details/detailScreen.dart';
+import 'Screens/HomeScreen/Countries.dart';
 import 'Screens/HomeScreen/Notification SCreen/Notification_Screen.dart';
 import 'Screens/Location/locationScreen.dart';
 import 'Screens/Post Free Ad/post_ad.dart';
@@ -15,6 +16,6 @@ void main() => runApp(
         primaryColor: Color(0xFF2962D1),
         accentColor: Color(0xFFF3F3F3),
       ),
-      home: HomePage(),
+      home: Countries(),
 
 ));

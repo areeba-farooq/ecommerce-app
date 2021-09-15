@@ -51,6 +51,7 @@ flutter:
     - images/user/
     - assets/ads/
     - assets/icons/
+    - assets/city/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -41,7 +41,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [buildHeading(), CityDropDown()],
+              children: [
+                buildHeading(), CityDropDown()],
             ),
             SearchBar(),
             SizedBox(
