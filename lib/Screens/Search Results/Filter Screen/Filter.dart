@@ -18,6 +18,7 @@ class Filter extends StatefulWidget {
 class _FilterState extends State<Filter> {
 
   TextEditingController _controller = TextEditingController();
+  TextEditingController _controller2 = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -63,6 +64,10 @@ class _FilterState extends State<Filter> {
   ];
   late String selectedBrandName = 'Select any Brand Name';
   bool value = false;
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
+
 
 @override
   Widget build(BuildContext context) {
@@ -301,10 +306,10 @@ class _FilterState extends State<Filter> {
                     children: <Widget>[
                       Checkbox(
                         activeColor: Colors.blue,
-                        value: this.value,
+                        value: this.value1,
                         onChanged: (bool? value) {
                           setState(() {
-                            this.value = value!;
+                            this.value1 = value!;
                           });
                         },
                       ),
@@ -318,10 +323,10 @@ class _FilterState extends State<Filter> {
                     children: <Widget>[
                       Checkbox(
                         activeColor: Colors.blue,
-                        value: this.value,
+                        value: this.value2,
                         onChanged: (bool? value) {
                           setState(() {
-                            this.value = value!;
+                            this.value2 = value!;
                           });
                         },
                       ),
@@ -335,10 +340,10 @@ class _FilterState extends State<Filter> {
                     children: <Widget>[
                       Checkbox(
                         activeColor: Colors.blue,
-                        value: this.value,
+                        value: this.value3,
                         onChanged: (bool? value) {
                           setState(() {
-                            this.value = value!;
+                            this.value3 = value!;
                           });
                         },
                       ),
@@ -429,7 +434,7 @@ class _FilterState extends State<Filter> {
                         Expanded(
                           flex: 1,
                           child: TextFormField(
-                            controller: _controller,
+                            controller: _controller2,
                             keyboardType: TextInputType.numberWithOptions(
                                 decimal: false, signed: false),
                             inputFormatters: <TextInputFormatter>[
@@ -445,10 +450,10 @@ class _FilterState extends State<Filter> {
                               minWidth: 5.0,
                               child: Icon(Icons.arrow_drop_up),
                               onPressed: () {
-                                int currentValue = int.parse(_controller.text);
+                                int currentValue = int.parse(_controller2.text);
                                 setState(() {
                                   currentValue++;
-                                  _controller.text =
+                                  _controller2.text =
                                       (currentValue).toString(); // incrementing value
                                 });
                               },
@@ -457,11 +462,11 @@ class _FilterState extends State<Filter> {
                               minWidth: 5.0,
                               child: Icon(Icons.arrow_drop_down),
                               onPressed: () {
-                                int currentValue = int.parse(_controller.text);
+                                int currentValue = int.parse(_controller2.text);
                                 setState(() {
                                   print("Setting state");
                                   currentValue--;
-                                  _controller.text =
+                                  _controller2.text =
                                       (currentValue).toString(); // decrementing value
                                 });
                               },

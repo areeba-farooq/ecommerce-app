@@ -34,7 +34,11 @@ class PopUp extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                                 fontSize: 20),
                           ),
-                          Icon(FontAwesomeIcons.windowClose, color: Colors.grey,)
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
+                              child: Icon(FontAwesomeIcons.windowClose, color: Colors.red,))
                         ],
                       ),
                     ),

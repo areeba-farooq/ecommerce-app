@@ -1,6 +1,7 @@
 import 'package:dubuz_app/Screens/Location/locationScreen.dart';
 import 'package:dubuz_app/Screens/Search%20Results/Filter%20Screen/Filter.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TabsContainer extends StatelessWidget {
   const TabsContainer({
@@ -35,13 +36,27 @@ class TabsContainer extends StatelessWidget {
                       children: <Widget>[
                         SizedBox(height: 20,),
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
-                          child: Text('Sort By', style: TextStyle(
-                            color: Theme.of(context).primaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25
-                          ),),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0,),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Sort By',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 25),
+                              ),
+                              GestureDetector(
+                                  onTap: (){
+                                    Navigator.pop(context);
+                                  },
+                                  child: Icon(FontAwesomeIcons.windowClose, color: Colors.red,))
+                            ],
+                          ),
                         ),
+                        SizedBox(height: 10,),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8),
                           child: Text('Best Matches', style: TextStyle(

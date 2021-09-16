@@ -7,17 +7,16 @@ import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rating_dialog/rating_dialog.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+
 class AdDetails extends StatefulWidget {
-
-
   @override
   _AdDetailsState createState() => _AdDetailsState();
 }
 
 class _AdDetailsState extends State<AdDetails> {
-
   late GoogleMapController mapController;
 
   final LatLng _center = const LatLng(45.521563, -122.677433);
@@ -25,6 +24,7 @@ class _AdDetailsState extends State<AdDetails> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +53,11 @@ class _AdDetailsState extends State<AdDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HomePage()));
                       },
                       child: Icon(
                         Icons.arrow_back,
@@ -417,7 +420,7 @@ class _AdDetailsState extends State<AdDetails> {
                 height: 10,
               ),
               Container(
-                padding: EdgeInsets.only(left: 10, top: 20),
+                  padding: EdgeInsets.only(left: 10, top: 20),
                   height: 130,
                   width: double.infinity,
                   color: Colors.white,
@@ -464,9 +467,7 @@ class _AdDetailsState extends State<AdDetails> {
                           padding: EdgeInsets.only(left: 100.0, top: 20),
                           child: Icon(Icons.arrow_forward_ios),
                         )
-                      ]
-                  )
-              ),
+                      ])),
               SizedBox(
                 height: 10,
               ),
@@ -480,7 +481,9 @@ class _AdDetailsState extends State<AdDetails> {
                       fontSize: 20),
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Container(
                 height: 330,
                 width: double.infinity,
@@ -492,29 +495,46 @@ class _AdDetailsState extends State<AdDetails> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                       Padding(
-                         padding: EdgeInsets.only(left: 20.0, top: 10),
-                         child: Row(
-                           children: [
-                             Text('4.5', style: TextStyle(
-                               fontWeight: FontWeight.bold,
-                               fontSize: 20
-                             ),),
-                             SizedBox(width: 5,),
-                             Icon(Icons.star, color: Colors.black,),
-                             SizedBox(width: 5,),
-                             Text('Based on 3 reviews', style: TextStyle(fontSize: 18),),
-                           ],
-                         ),
-                       ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20.0, top: 10),
+                          child: Row(
+                            children: [
+                              Text(
+                                '4.5',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Icon(
+                                Icons.star,
+                                color: Colors.black,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text(
+                                'Based on 3 reviews',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ],
+                          ),
+                        ),
                         Row(
                           children: [
-                            Text('Write a review')
+                            TextButton(
+                                onPressed: () {
+                                  showRatingDialog();
+                                },
+                                child: Text('write a review',))
                           ],
                         )
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     User(),
                     Rating(),
                     DescriptionText(),
@@ -523,12 +543,19 @@ class _AdDetailsState extends State<AdDetails> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 20.0),
-                      child: TextButton(onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> Reviews()));
-                      }, child: Text('See all reviews', style: TextStyle(
-                        fontSize: 18,
-                        color: Theme.of(context).primaryColor
-                      ),)),
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Reviews()));
+                          },
+                          child: Text(
+                            'See all reviews',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Theme.of(context).primaryColor),
+                          )),
                     )
                   ],
                 ),
@@ -546,10 +573,49 @@ class _AdDetailsState extends State<AdDetails> {
                       fontSize: 20),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               SimilarAdsCards()
             ]),
       ),
     );
   }
+  void showRatingDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) {
+          return RatingDialog(
+            ratingColor: Colors.amber,
+            title: 'Rate this app',
+            message: "If you enjoy using this app, would you mind taking a moment to rate it? Thank you, for your support!",
+            submitButton: 'Submit',
+            onCancelled: () => print('cancelled'),
+            onSubmitted: (response) {
+              print('rating: ${response.rating}, ');
+              print('comment: ${response.comment}');
+            },
+          );
+        }
+    );
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
