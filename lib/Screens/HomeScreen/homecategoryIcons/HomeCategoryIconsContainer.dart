@@ -8,9 +8,15 @@ class HomeCategoryIconsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 180,
+        height: 200,
         width: double.infinity,
-        color: Colors.white,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          )
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -7,14 +7,14 @@ Padding buildHeading() {
         text: TextSpan(
             text: 'Explore',
             style: TextStyle(
-                fontSize: 30,
+                fontSize: 28,
                 color: Colors.black,
                 fontWeight: FontWeight.w500
             ),
             children: <TextSpan>[
               TextSpan(text: ' For You', style: TextStyle(
                   color: Colors.grey,
-                  fontSize: 28,
+                  fontSize: 25,
                   fontWeight: FontWeight.w500
               ))
             ]),

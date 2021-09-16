@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 Container buildAdContainer() {
   return Container(
     height: 80,
-    width: 380,
+    width: 400,
     decoration: BoxDecoration(
         color: Colors.white,
         image: DecorationImage(
