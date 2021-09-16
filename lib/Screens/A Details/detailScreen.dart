@@ -3,6 +3,7 @@ import 'package:dubuz_app/Screens/All%20Reviews/Description.dart';
 import 'package:dubuz_app/Screens/All%20Reviews/User.dart';
 import 'package:dubuz_app/Screens/All%20Reviews/rating.dart';
 import 'package:dubuz_app/Screens/All%20Reviews/reviews.dart';
+import 'package:dubuz_app/Screens/Chats/ChatScreen.dart';
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,6 +25,10 @@ class _AdDetailsState extends State<AdDetails> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
   }
+final List<Widget> screen = [
+  ChatScreen(),
+  HomePage()
+];
 
   @override
   Widget build(BuildContext context) {
@@ -578,6 +583,69 @@ class _AdDetailsState extends State<AdDetails> {
               ),
               SimilarAdsCards()
             ]),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                height: 60,
+                width: 210,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Text(
+                  'Chat', textAlign: TextAlign.center,style: TextStyle(
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20
+                ),
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+              },
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                height: 60,
+                width: 200,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 3,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Text(
+                  'Save & Apply', textAlign: TextAlign.center,style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20
+                ),
+                ),
+              ),
+            )
+          ],
+        )
+
       ),
     );
   }

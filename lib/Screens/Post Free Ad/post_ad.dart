@@ -1,9 +1,13 @@
 
+import 'package:dubuz_app/Screens/Chats/ChatScreen.dart';
+import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
+import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:dubuz_app/Screens/Search%20Results/Filter%20Screen/heading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 
 enum AdType { Private, Professional }
@@ -18,12 +22,29 @@ class PostAd extends StatefulWidget {
 }
 
 class _PostAdState extends State<PostAd> {
+
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
+
   AdType type = AdType.Private;
   Premium premium = Premium.FreeAd;
   Transmission _transmission = Transmission.Automatic;
 
   TextEditingController _controller = TextEditingController();
-
+  int currentTab = 4;
+  Widget currentScreen = PostAd();
+  final List<Widget> screens = [
+    HomePage(),
+    FavAds(),
+    ChatScreen(),
+    Profile()
+  ];
   @override
   void initState() {
     super.initState();
@@ -66,6 +87,10 @@ class _PostAdState extends State<PostAd> {
   ];
   late String selectedBrandName = 'Select any Brand Name';
   bool value = false;
+  bool value1 = false;
+  bool value2 = false;
+  bool value3 = false;
+  bool value4 = false;
   List<String> cityName = [
     'Select any City Name',
     'Karachi',
@@ -418,10 +443,10 @@ class _PostAdState extends State<PostAd> {
                       children: <Widget>[
                         Checkbox(
                           activeColor: Colors.blue,
-                          value: this.value,
+                          value: this.value1,
                           onChanged: (bool? value) {
                             setState(() {
-                              this.value = value!;
+                              this.value1 = value!;
                             });
                           },
                         ),
@@ -435,10 +460,10 @@ class _PostAdState extends State<PostAd> {
                       children: <Widget>[
                         Checkbox(
                           activeColor: Colors.blue,
-                          value: this.value,
+                          value: this.value2,
                           onChanged: (bool? value) {
                             setState(() {
-                              this.value = value!;
+                              this.value2 = value!;
                             });
                           },
                         ),
@@ -452,10 +477,10 @@ class _PostAdState extends State<PostAd> {
                       children: <Widget>[
                         Checkbox(
                           activeColor: Colors.blue,
-                          value: this.value,
+                          value: this.value3,
                           onChanged: (bool? value) {
                             setState(() {
-                              this.value = value!;
+                              this.value3 = value!;
                             });
                           },
                         ),
@@ -519,10 +544,10 @@ class _PostAdState extends State<PostAd> {
                             children: <Widget>[
                               Checkbox(
                                 activeColor: Colors.blue,
-                                value: this.value,
+                                value: this.value4,
                                 onChanged: (bool? value) {
                                   setState(() {
-                                    this.value = value!;
+                                    this.value4 = value!;
                                   });
                                 },
                               ),
@@ -558,7 +583,7 @@ class _PostAdState extends State<PostAd> {
                 height: 20,
               ),
               Container(
-                height: 500,
+                height: 650,
                 width: double.infinity,
                 color: Colors.white,
                 child: Column(
@@ -612,11 +637,23 @@ class _PostAdState extends State<PostAd> {
                     ),
                     Heading(name: 'Location'),
                     SizedBox(
-                      height: 10,
+                      height: 20,
+                    ),
+                    Container(
+                      height: 300,
+                      width: double.infinity,
+                      color: Colors.white,
+                      child: GoogleMap(
+                        onMapCreated: _onMapCreated,
+                        initialCameraPosition: CameraPosition(
+                          target: _center,
+                          zoom: 11.0,
+                        ),
+                      ),
                     ),
 
                     SizedBox(
-                      height: 10,
+                      height: 20,
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -759,7 +796,81 @@ class _PostAdState extends State<PostAd> {
               ),
             ],
           ),
-        )
+        ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(Icons.add, color: Colors.white,),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(width: 20,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 0;
+                          currentScreen = HomePage();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                        });
+                      }, icon: Icon(Icons.home_outlined,
+                    color: currentTab == 0? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 30,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 1;
+                          currentScreen = FavAds();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>FavAds()));
+
+                        });
+                      }, icon: Icon(Icons.favorite_border,
+                    color: currentTab == 1? Theme.of(context).primaryColor : Colors.grey,)),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 2;
+                          currentScreen = ChatScreen();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
+
+                        });
+                      }, icon: Icon(Icons.message,
+                    color: currentTab == 2? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 30,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 3;
+                          currentScreen = Profile();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+
+                        });
+                      }, icon: Icon(Icons.person_outline,
+                    color: currentTab == 3? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 20,),
+                ],
+              )
+            ],
+          ),
+        ),
+
+      ),
     );
   }
 }

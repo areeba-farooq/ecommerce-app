@@ -361,7 +361,7 @@ class _FilterState extends State<Filter> {
             ),
             SizedBox(height: 10,),
             Container(
-              height: 340,
+              height: 180,
               width: double.infinity,
               color: Colors.white,
               child:  Column(
@@ -478,11 +478,7 @@ class _FilterState extends State<Filter> {
                     ),
                   ),
                   SizedBox(
-                    height: 90,
-                  ),
-                  Buttons(),
-                  SizedBox(
-                    height: 40,
+                    height: 30,
                   ),
                 ],
               ),
@@ -490,6 +486,53 @@ class _FilterState extends State<Filter> {
             )
           ],
         ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Filter()));
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  height: 60,
+                  width: 210,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                  child: Text(
+                    'Reset All', textAlign: TextAlign.center,style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20
+                  ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchResult()));
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  height: 60,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                  ),
+                  child: Text(
+                    'Save & Apply', textAlign: TextAlign.center,style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20
+                  ),
+                  ),
+                ),
+              )
+            ],
+          )
+
       ),
     );
   }

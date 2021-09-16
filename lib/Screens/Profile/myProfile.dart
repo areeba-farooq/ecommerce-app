@@ -1,7 +1,11 @@
 import 'package:dubuz_app/Screens/A%20Details/detailScreen.dart';
+import 'package:dubuz_app/Screens/Chats/ChatScreen.dart';
 import 'package:dubuz_app/Screens/EditProfile/editPicture.dart';
 import 'package:dubuz_app/Screens/EditProfile/edit_profile.dart';
+import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
+import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:dubuz_app/Screens/My%20Account/myAccount.dart';
+import 'package:dubuz_app/Screens/Post%20Free%20Ad/post_ad.dart';
 import 'package:dubuz_app/Screens/Profile/PublishAds.dart';
 import 'package:dubuz_app/Screens/Profile/description.dart';
 import 'package:dubuz_app/Screens/Welcome%20Screen/welcome.dart';
@@ -12,9 +16,23 @@ import 'InfoCard.dart';
 import 'ProfileHeader.dart';
 import 'PublishAdsCards.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
 
+  @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  int currentTab = 3;
+  final List<Widget> screens = [
+    HomePage(),
+    FavAds(),
+    ChatScreen(),
+    Profile()
+  ];
+
+  Widget currentScreen = Profile();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,6 +212,80 @@ class Profile extends StatelessWidget {
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(Icons.add, color: Colors.white,),
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+        },
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        notchMargin: 10,
+        child: Container(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(width: 20,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 0;
+                          currentScreen = HomePage();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+                        });
+                      }, icon: Icon(Icons.home_outlined,
+                    color: currentTab == 0? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 30,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 1;
+                          currentScreen = FavAds();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>FavAds()));
+
+                        });
+                      }, icon: Icon(Icons.favorite_border,
+                    color: currentTab == 1? Theme.of(context).primaryColor : Colors.grey,)),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 2;
+                          currentScreen = ChatScreen();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>ChatScreen()));
+
+                        });
+                      }, icon: Icon(Icons.message,
+                    color: currentTab == 2? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 30,),
+                  IconButton(
+                      onPressed: (){
+                        setState(() {
+                          currentTab = 3;
+                          currentScreen = Profile();
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+
+                        });
+                      }, icon: Icon(Icons.person_outline,
+                    color: currentTab == 3? Theme.of(context).primaryColor : Colors.grey,)),
+                  SizedBox(width: 20,),
+                ],
+              )
+            ],
+          ),
+        ),
+
       ),
     );
   }
