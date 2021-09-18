@@ -22,7 +22,8 @@ class _FilterState extends State<Filter> {
   @override
   void initState() {
     super.initState();
-    _controller.text = "0"; // Setting the initial value for the field.
+    _controller.text = "0";
+    _controller2.text = '0';// Setting the initial value for the field.
   }
 
   AdType type = AdType.Private;
