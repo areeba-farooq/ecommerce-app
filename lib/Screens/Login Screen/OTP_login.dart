@@ -52,7 +52,7 @@ class OTPLogin extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => VerifyOTP()));
+                    _verifyOTP());
               },
               child: Text(
                 'Send OTP',
@@ -73,7 +73,7 @@ class OTPLogin extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                Navigator.push(context, _loginRoute());
               },
               child: Text(
                 'Go Back',
@@ -133,6 +133,44 @@ class OTPLogin extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+  Route _verifyOTP() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => VerifyOTP(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }

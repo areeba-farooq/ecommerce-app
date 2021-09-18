@@ -5,9 +5,15 @@ import 'package:dubuz_app/Screens/Sign%20Up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
 
+  @override
+  _LoginState createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +77,7 @@ class Login extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPassword()));
+                Navigator.push(context, _forgotPassword());
               },
               child: Padding(
                 padding: EdgeInsets.only(left: 200.0),
@@ -87,11 +93,25 @@ class Login extends StatelessWidget {
             height: 20,
           ),
           ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+              onPressed: () async {
+
+                if (isLoading) return;
+                setState(() {
+                  isLoading = true;
+                });
+                await Future.delayed(Duration(seconds: 5));
+                setState(() {
+                  isLoading = false;
+                  Navigator.push(context, _loginRoute());
+                });
               },
-              child: Text(
+              child: isLoading ? Row(
+                children: [
+                  CircularProgressIndicator(color: Colors.white,),
+                  SizedBox(width: 20,),
+                  Text('Please wait...', style: TextStyle(color: Colors.white, fontSize: 18),)
+                ],
+              ) : Text(
                 'Login',
                 style: TextStyle(
                     color: Colors.white,
@@ -111,7 +131,7 @@ class Login extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>OTPLogin()));
+              Navigator.push(context, _otpLogin());
             },
             child: Text(
               'Login via OTP',
@@ -165,7 +185,7 @@ class Login extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUp()));
+              Navigator.push(context, _signUpRoute());
             },
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -188,6 +208,86 @@ class Login extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _signUpRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const SignUp(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _forgotPassword() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const ForgotPassword(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _otpLogin() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const OTPLogin(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }

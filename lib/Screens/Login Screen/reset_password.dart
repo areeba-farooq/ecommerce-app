@@ -39,7 +39,7 @@ class ResetPassword extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Login()));
+                  _loginRoute());
               },
               child: Text(
                 'Login',
@@ -59,7 +59,7 @@ class ResetPassword extends StatelessWidget {
           SizedBox(height: 30,),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>ForgotPassword()));
+              Navigator.push(context, _forgotPassword());
             },
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -82,6 +82,44 @@ class ResetPassword extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+  Route _forgotPassword() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const ForgotPassword(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }

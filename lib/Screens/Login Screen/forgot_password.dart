@@ -3,9 +3,15 @@ import 'package:dubuz_app/Screens/Login%20Screen/login_screen.dart';
 import 'package:dubuz_app/Screens/Login%20Screen/reset_password.dart';
 import 'package:flutter/material.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
 
+  @override
+  _ForgotPasswordState createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,11 +61,25 @@ class ForgotPassword extends StatelessWidget {
             height: 30,
           ),
           ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ResetPassword()));
+              onPressed: () async {
+
+                if (isLoading) return;
+                setState(() {
+                  isLoading = true;
+                });
+                await Future.delayed(Duration(seconds: 5));
+                setState(() {
+                  isLoading = false;
+                  Navigator.push(context, _resetRoute());
+                });
               },
-              child: Text(
+              child: isLoading ? Row(
+                children: [
+                  CircularProgressIndicator(color: Colors.white,),
+                  SizedBox(width: 20,),
+                  Text('Please wait...', style: TextStyle(color: Colors.white, fontSize: 18),)
+                ],
+              ):Text(
                 'Reset Password',
                 style: TextStyle(
                     color: Colors.white,
@@ -78,7 +98,7 @@ class ForgotPassword extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                Navigator.push(context,_loginRoute());
               },
               child: Text(
                 'Go Back',
@@ -92,6 +112,46 @@ class ForgotPassword extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  Route _resetRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const ResetPassword(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }

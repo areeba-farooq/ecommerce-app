@@ -11,6 +11,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,11 +102,25 @@ class _SignUpState extends State<SignUp> {
           ),
           SizedBox(height: 50,),
           ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+              onPressed: () async {
+
+                if (isLoading) return;
+                setState(() {
+                  isLoading = true;
+                });
+                await Future.delayed(Duration(seconds: 5));
+                setState(() {
+                  isLoading = false;
+                  Navigator.push(context, _signUpRoute());
+                });
               },
-              child: Text(
+              child: isLoading ? Row(
+                children: [
+                  CircularProgressIndicator(color: Colors.white,),
+                  SizedBox(width: 20,),
+                  Text('Please wait...', style: TextStyle(color: Colors.white, fontSize: 18),)
+                ],
+              ) : Text(
                 'SignUp',
                 style: TextStyle(
                     color: Colors.white,
@@ -174,7 +189,7 @@ class _SignUpState extends State<SignUp> {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> Login()));
+              Navigator.push(context,_loginRoute());
             },
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -197,6 +212,44 @@ class _SignUpState extends State<SignUp> {
           )
         ],
       ),
+    );
+  }
+  Route _signUpRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }

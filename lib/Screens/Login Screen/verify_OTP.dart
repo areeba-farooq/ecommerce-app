@@ -6,8 +6,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'login_screen.dart';
 
-class VerifyOTP extends StatelessWidget {
+class VerifyOTP extends StatefulWidget {
 
+  @override
+  _VerifyOTPState createState() => _VerifyOTPState();
+}
+
+class _VerifyOTPState extends State<VerifyOTP> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,11 +56,25 @@ class VerifyOTP extends StatelessWidget {
             height: 50,
           ),
           ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+              onPressed: () async {
+
+                if (isLoading) return;
+                setState(() {
+                  isLoading = true;
+                });
+                await Future.delayed(Duration(seconds: 5));
+                setState(() {
+                  isLoading = false;
+                  Navigator.push(context, _verify());
+                });
               },
-              child: Text(
+              child: isLoading ? Row(
+                children: [
+                  CircularProgressIndicator(color: Colors.white,),
+                  SizedBox(width: 20,),
+                  Text('Please wait...', style: TextStyle(color: Colors.white, fontSize: 18),)
+                ],
+              ):Text(
                 'Verify OTP',
                 style: TextStyle(
                   color: Colors.white,
@@ -73,7 +93,7 @@ class VerifyOTP extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>Login()));
+                Navigator.push(context, _loginRoute());
               },
               child: Text(
                 'Go Back',
@@ -87,7 +107,7 @@ class VerifyOTP extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>OTPLogin()));
+              Navigator.push(context, _otpRoute());
             },
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -110,6 +130,66 @@ class VerifyOTP extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Route _verify() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _otpRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const OTPLogin(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
+    );
+  }
+
+  Route _loginRoute() {
+    return PageRouteBuilder(
+      transitionDuration: Duration(milliseconds: 500),
+      pageBuilder: (context, animation, secondaryAnimation) => const Login(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        // const begin = Offset(0.0, 1.0);
+        // const end = Offset.zero;
+        //
+        // var tween = Tween(begin: begin, end: end);
+
+        animation = CurvedAnimation(parent: animation, curve: Curves.easeInOut);
+        return ScaleTransition(
+          alignment: Alignment.center,
+          scale: animation,
+          child: child,
+        );
+      },
     );
   }
 }
