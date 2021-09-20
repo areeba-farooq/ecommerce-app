@@ -1,9 +1,7 @@
 
-import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:flutter/material.dart';
 
 import 'Screens/SplashScreen.dart';
-import 'Screens/Welcome Screen/welcome.dart';
 
 
 void main() => runApp(

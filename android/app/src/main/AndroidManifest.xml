@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.dubuz.dubuz_app">
    <application
-        android:label="dubuz_app"
+        android:label="Dubuz"
         android:icon="@mipmap/ic_launcher">
        <meta-data android:name="com.google.android.geo.API_KEY"
            android:value="AIzaSyAcaNGCEbDBKNx5TgOGoiLyGY_qqdunfsU"/>
