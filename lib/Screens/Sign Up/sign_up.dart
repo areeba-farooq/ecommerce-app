@@ -334,13 +334,14 @@ class _SignUpState extends State<SignUp> {
     });
 
     var data = json.decode(response.body);
-    if (data['success'] == 'true') {
+    if (data['success'] == true) {
       ScaffoldMessenger.of(context).
-      showSnackBar(SnackBar(content: Text('Registered Successfully')));
+      showSnackBar(SnackBar(content: Text('${data['message']}')));
       setState(() {
         Navigator.push(context, _signUpRoute());
       });
     } else {
+      print('2');
       if (data['data']['email'] != null && data['data']['phone'] == null) {
         ScaffoldMessenger.of(context).
         showSnackBar(SnackBar(content: Text('${data['data']['email']}')));
