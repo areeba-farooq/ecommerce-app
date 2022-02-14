@@ -784,7 +784,7 @@ class _PostAdState extends State<PostAd> {
                           letterSpacing: 1),
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(150, 50),
+                        minimumSize: Size(150, 50),
                         padding: EdgeInsets.all(10),
                         primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(

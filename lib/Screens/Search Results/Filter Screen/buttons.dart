@@ -23,7 +23,7 @@ class Buttons extends StatelessWidget {
                   letterSpacing: 1),
             ),
             style: ElevatedButton.styleFrom(
-                fixedSize: Size(150, 50),
+                minimumSize: Size(150, 50),
                 padding: EdgeInsets.all(10),
                 primary: Colors.black,
                 shape: RoundedRectangleBorder(
@@ -44,7 +44,7 @@ class Buttons extends StatelessWidget {
             ),
             style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor,
-                fixedSize: Size(150, 50),
+                minimumSize: Size(150, 50),
                 padding: EdgeInsets.all(10),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30),

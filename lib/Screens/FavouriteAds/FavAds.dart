@@ -1,5 +1,6 @@
 import 'package:dubuz_app/Screens/A%20Details/detailScreen.dart';
 import 'package:dubuz_app/Screens/Chats/ChatScreen.dart';
+import 'package:dubuz_app/Screens/Post%20Free%20Ad/postCategory.dart';
 import 'package:dubuz_app/Screens/Post%20Free%20Ad/post_ad.dart';
 import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/material.dart';
@@ -154,7 +155,7 @@ class _FavAdsState extends State<FavAds> {
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add, color: Colors.white,),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostCategory()));
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

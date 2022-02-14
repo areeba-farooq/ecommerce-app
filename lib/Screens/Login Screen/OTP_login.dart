@@ -64,7 +64,7 @@ class OTPLogin extends StatelessWidget {
                     fontWeight: FontWeight.w500,),
                 ),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: Size(200, 50),
+                    minimumSize: Size(200, 50),
                     padding: EdgeInsets.all(10),
                     primary: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
@@ -108,7 +108,7 @@ class OTPLogin extends StatelessWidget {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(
@@ -125,7 +125,7 @@ class OTPLogin extends StatelessWidget {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Colors.red,
                         shape: RoundedRectangleBorder(

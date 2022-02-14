@@ -4,6 +4,7 @@ import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:dubuz_app/Screens/My%20Account/myAccount.dart';
 import 'package:dubuz_app/Screens/Pending%20Ads/pendingAdsCards.dart';
+import 'package:dubuz_app/Screens/Post%20Free%20Ad/postCategory.dart';
 import 'package:dubuz_app/Screens/Post%20Free%20Ad/post_ad.dart';
 import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/material.dart';
@@ -152,7 +153,7 @@ class _PendingAdsState extends State<PendingAds> {
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add, color: Colors.white,),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostCategory()));
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

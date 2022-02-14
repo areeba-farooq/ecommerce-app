@@ -37,6 +37,9 @@ dependencies:
   animated_splash_screen: ^1.1.0
   simple_animations: ^3.2.0
   http: ^0.13.3
+  expansion_tile_card: ^2.0.0
+  dio: ^4.0.1
+  carousel_slider: ^4.0.0
 
 dev_dependencies:
   flutter_test:

@@ -214,7 +214,7 @@ class _SignUpState extends State<SignUp> {
                 },
                 child: isLoading ? Row(
                   children: [
-                    CircularProgressIndicator(color: Colors.white,),
+                    CircularProgressIndicator(backgroundColor: Colors.white,),
                     SizedBox(width: 20,),
                     Text('Please wait...',
                       style: TextStyle(color: Colors.white, fontSize: 18),)
@@ -228,7 +228,7 @@ class _SignUpState extends State<SignUp> {
                       letterSpacing: 1),
                 ),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: Size(200, 50),
+                    minimumSize: Size(200, 50),
                     padding: EdgeInsets.all(10),
                     primary: Theme
                         .of(context)
@@ -260,11 +260,11 @@ class _SignUpState extends State<SignUp> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Theme
                             .of(context)
-                            .primaryColor,
+                        .primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ))),
@@ -279,7 +279,7 @@ class _SignUpState extends State<SignUp> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Colors.red,
                         shape: RoundedRectangleBorder(

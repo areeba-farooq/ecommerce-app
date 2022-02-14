@@ -50,7 +50,7 @@ class ResetPassword extends StatelessWidget {
                     letterSpacing: 1),
               ),
               style: ElevatedButton.styleFrom(
-                  fixedSize: Size(200, 50),
+                  minimumSize: Size(200, 50),
                   padding: EdgeInsets.all(10),
                   primary: Theme.of(context).primaryColor,
                   shape: RoundedRectangleBorder(

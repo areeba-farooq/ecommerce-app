@@ -69,7 +69,7 @@ class _WelcomeState extends State<Welcome> {
                           letterSpacing: 1),
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(150, 50),
+                        minimumSize: Size(150, 50),
                         padding: EdgeInsets.all(10),
                         primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(
@@ -98,7 +98,7 @@ class _WelcomeState extends State<Welcome> {
                     ),
                     style: ElevatedButton.styleFrom(
                         primary: Colors.white,
-                        fixedSize: Size(150, 50),
+                        minimumSize: Size(150, 50),
                         padding: EdgeInsets.all(10),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
@@ -133,7 +133,7 @@ class _WelcomeState extends State<Welcome> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(
@@ -147,7 +147,7 @@ class _WelcomeState extends State<Welcome> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Colors.red,
                         shape: RoundedRectangleBorder(

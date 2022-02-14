@@ -3,6 +3,7 @@ import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/HomeTrendingCards.dart';
 import 'package:dubuz_app/Screens/HomeScreen/HomeTrendingAds/trendingAds.dart';
 import 'package:dubuz_app/Screens/HomeScreen/Notification%20SCreen/Notification_Screen.dart';
+import 'package:dubuz_app/Screens/Post%20Free%20Ad/postCategory.dart';
 import 'package:dubuz_app/Screens/Post%20Free%20Ad/post_ad.dart';
 import 'package:dubuz_app/Screens/Profile/myProfile.dart';
 import 'package:flutter/cupertino.dart';
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add, color: Colors.white,),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostCategory()));
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

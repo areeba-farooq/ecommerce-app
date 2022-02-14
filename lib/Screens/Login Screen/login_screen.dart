@@ -25,9 +25,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Theme
-          .of(context)
-          .accentColor,
+      backgroundColor: Theme.of(context).accentColor,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -81,8 +79,8 @@ class _LoginState extends State<Login> {
                             color: Colors.black87,
                           ),
                           hintText: 'Info@gmail.com',
-                          hintStyle: TextStyle(
-                              color: Colors.grey, fontSize: 18)),
+                          hintStyle:
+                              TextStyle(color: Colors.grey, fontSize: 18)),
                     ),
                   ),
                   SizedBox(
@@ -120,8 +118,8 @@ class _LoginState extends State<Login> {
                             },
                           ),
                           hintText: 'Password',
-                          hintStyle: TextStyle(
-                              color: Colors.grey, fontSize: 18)),
+                          hintStyle:
+                              TextStyle(color: Colors.grey, fontSize: 18)),
                     ),
                   ),
                 ],
@@ -139,9 +137,7 @@ class _LoginState extends State<Login> {
                   child: Text(
                     'Forgot Password?',
                     style: TextStyle(
-                        color: Theme
-                            .of(context)
-                            .primaryColor,
+                        color: Theme.of(context).primaryColor,
                         fontSize: 17,
                         fontWeight: FontWeight.w500),
                   ),
@@ -163,39 +159,37 @@ class _LoginState extends State<Login> {
                       isLoading = false;
                     });
                   } else {
-                    ScaffoldMessenger.of(context).
-                    showSnackBar(SnackBar(content: Text('Blank field not allowed')));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Blank field not allowed')));
                   }
                 },
                 child: isLoading
                     ? Row(
-                  children: [
-                    CircularProgressIndicator(
-                      color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text(
-                      'Please wait...',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    )
-                  ],
-                )
+                        children: [
+                          CircularProgressIndicator(
+                            backgroundColor: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Text(
+                            'Please wait...',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          )
+                        ],
+                      )
                     : Text(
-                  'Login',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 1),
-                ),
+                        'Login',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 1),
+                      ),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: Size(200, 50),
+                    minimumSize: Size(200, 50),
                     padding: EdgeInsets.all(10),
-                    primary: Theme
-                        .of(context)
-                        .primaryColor,
+                    primary: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ))),
@@ -209,9 +203,7 @@ class _LoginState extends State<Login> {
               child: Text(
                 'Login via OTP',
                 style: TextStyle(
-                    color: Theme
-                        .of(context)
-                        .primaryColor,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 18),
               ),
@@ -230,11 +222,9 @@ class _LoginState extends State<Login> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
-                        primary: Theme
-                            .of(context)
-                            .primaryColor,
+                        primary: Theme.of(context).primaryColor,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ))),
@@ -249,7 +239,7 @@ class _LoginState extends State<Login> {
                       size: 30,
                     ),
                     style: ElevatedButton.styleFrom(
-                        fixedSize: Size(50, 60),
+                        minimumSize: Size(50, 60),
                         padding: EdgeInsets.all(10),
                         primary: Colors.red,
                         shape: RoundedRectangleBorder(
@@ -277,9 +267,7 @@ class _LoginState extends State<Login> {
                           TextSpan(
                               text: ' Signup',
                               style: TextStyle(
-                                  color: Theme
-                                      .of(context)
-                                      .primaryColor,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 18,
                                   fontWeight: FontWeight.w500))
                         ]),
@@ -293,16 +281,15 @@ class _LoginState extends State<Login> {
 
   Future<void> apiService() async {
     var url = Uri.parse("https://dubuz.com/api/login");
-    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
-
+    if (emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
       var response = await https.post(url,
           body: ({
-        'login': emailController.text,
+            'login': emailController.text,
             'password': passwordController.text
           }));
 
       var jsonData;
-      if(response.statusCode == 200){
+      if (response.statusCode == 200) {
         jsonData = jsonDecode(response.body);
         print(response.body);
         print(jsonData);
@@ -310,15 +297,16 @@ class _LoginState extends State<Login> {
         setState(() {
           Navigator.push(context, _loginRoute());
         });
-      } else{
-        ScaffoldMessenger.of(context).
-        showSnackBar(SnackBar(content: Text('Invalid Credentials')));
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Invalid Credentials')));
       }
-    } else{
-      ScaffoldMessenger.of(context).
-      showSnackBar(SnackBar(content: Text('Blank field not allowed')));
+    } else {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Blank field not allowed')));
     }
   }
+
   Route _loginRoute() {
     return PageRouteBuilder(
       transitionDuration: Duration(milliseconds: 500),
@@ -363,7 +351,7 @@ class _LoginState extends State<Login> {
     return PageRouteBuilder(
       transitionDuration: Duration(milliseconds: 500),
       pageBuilder: (context, animation, secondaryAnimation) =>
-      const ForgotPassword(),
+          const ForgotPassword(),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         // const begin = Offset(0.0, 1.0);
         // const end = Offset.zero;
@@ -400,4 +388,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-

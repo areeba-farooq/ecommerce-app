@@ -72,7 +72,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                 },
                 child: isLoading ? Row(
                   children: [
-                    CircularProgressIndicator(color: Colors.white,),
+                    CircularProgressIndicator(backgroundColor: Colors.white,),
                     SizedBox(width: 20,),
                     Text('Please wait...', style: TextStyle(color: Colors.white, fontSize: 18),)
                   ],
@@ -84,7 +84,7 @@ class _VerifyOTPState extends State<VerifyOTP> {
                     fontWeight: FontWeight.w500,),
                 ),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: Size(200, 50),
+                    minimumSize: Size(200, 50),
                     padding: EdgeInsets.all(10),
                     primary: Theme.of(context).primaryColor,
                     shape: RoundedRectangleBorder(

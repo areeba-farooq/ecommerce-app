@@ -5,6 +5,7 @@ import 'package:dubuz_app/Screens/EditProfile/edit_profile.dart';
 import 'package:dubuz_app/Screens/FavouriteAds/FavAds.dart';
 import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:dubuz_app/Screens/My%20Account/myAccount.dart';
+import 'package:dubuz_app/Screens/Post%20Free%20Ad/postCategory.dart';
 import 'package:dubuz_app/Screens/Post%20Free%20Ad/post_ad.dart';
 import 'package:dubuz_app/Screens/Profile/PublishAds.dart';
 import 'package:dubuz_app/Screens/Profile/description.dart';
@@ -217,7 +218,7 @@ class _ProfileState extends State<Profile> {
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add, color: Colors.white,),
         onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostAd()));
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> PostCategory()));
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

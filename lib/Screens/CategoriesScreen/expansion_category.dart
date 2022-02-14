@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:dubuz_app/Screens/CategoriesScreen/subcategory_view.dart';
-import 'package:dubuz_app/Screens/HomeScreen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:http/http.dart';
@@ -110,17 +108,18 @@ class SubCats {
   }
 }
 
-class Categories extends StatefulWidget {
-  Categories({Key? key,}) : super(key: key);
+class ExpansionCategory extends StatefulWidget {
+  ExpansionCategory({Key? key,}) : super(key: key);
 
   @override
-  _CategoriesState createState() => _CategoriesState();
+  _ExpansionCategoryState createState() => _ExpansionCategoryState();
 }
 
-class _CategoriesState extends State<Categories> {
+class _ExpansionCategoryState extends State<ExpansionCategory> {
 
   Future<List<Data>> getCategories() async {
     final String postsURL = "https://dubuz.com/api/categories";
+    print("response ");
     Response res = await post(
       Uri.parse(postsURL),
       headers: {
@@ -128,12 +127,15 @@ class _CategoriesState extends State<Categories> {
         "Content-Type": "application/x-www-form-urlencoded"
       },
     );
+    print("response ${res.statusCode} ");
     if (res.statusCode == 200) {
       try {
+        print("List :${res.body}");
         //assuming this json returns an array of signupresponse objects
         CategoriesResponse complexTutorial =
         CategoriesResponse.fromJson(jsonDecode(res.body));
 
+        print(complexTutorial);
 
         // List<Data> list = parsedList.map((val) => Data.fromJson(val)).toList();
 
@@ -153,21 +155,7 @@ class _CategoriesState extends State<Categories> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).accentColor,
-        elevation: 0.0,
-        leading: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
-            },
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            )),
-        title: Text(
-          'Categories',
-          style: TextStyle(color: Colors.black, fontSize: 22),
-        ),
+        title: Text('demo'),
       ),
       body:  FutureBuilder(
         future: getCategories(),
@@ -184,38 +172,59 @@ class _CategoriesState extends State<Categories> {
                 Data data = posts[index];
                 var name = data.name;
                 var picture = data.picture;
-                var subCategory = data.subCats;
-                return GestureDetector(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> subcategoryView(
-                      subCatViewList: subCategory,
-                      catName: data,
-                    )));
-                  },
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-                          child: Row(
-                            children: [
-                              Image.network("$picture", width: 40, height: 40,),
-                              SizedBox(width: 20,),
-                              Expanded(
-                                child: Text("$name", overflow: TextOverflow.fade,
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black)),
-                              ),
-                            ],
-                          ),
-
-
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+                      child: ExpansionTileCard(
+                        title: Row(
+                          children: [
+                            Image.network("$picture", width: 40, height: 40,),
+                            SizedBox(width: 20,),
+                            Expanded(
+                              child: Text("$name", overflow: TextOverflow.fade,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                            ),
+                          ],
+                        ),
+                        children: [
+                          SizedBox(height: 20,),
+                          ListView.builder(
+                              padding: EdgeInsets.zero,
+                              itemCount: data.subCats.length,
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                SubCats subCataData = data.subCats[index];
+                                var subCatname = subCataData.name;
+                                var subCatpic = subCataData.picture;
+                                return Row(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 20.0),
+                                      child: Image.network("$subCatpic", width: 20, height: 20,),
+                                    ),
+                                    SizedBox(width: 30,),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 8),
+                                      child: Text(
+                                        "$subCatname",
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.black),
+                                      ),
+                                    )
+                                  ],
+                                );
+                              }),
+                        ],
                       ),
+                    ),
 
-                    ],
-                  ),
+                  ],
                 );
               },
             )
